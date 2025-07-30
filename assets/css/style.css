@@ -1,0 +1,218 @@
+/* Reseta básico e define a rolagem suave para links de âncora (#) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Definição das variáveis de cor para os temas claro e escuro */
+:root {
+    --bg-color: #eeeeee;
+    --text-color: #3d3d3d;
+    --header-color: #2e3436;
+    --accent-color: #3584E4; /* Azul GNOME para o tema claro */
+    --border-color: #dcdcdc;
+    --card-bg-color: #ffffff;
+    --contrast-color: #FF7800;
+}
+
+body.dark-theme {
+    --bg-color: #242424;
+    --text-color: #eeeeec;
+    --header-color: #ffffff;
+    --accent-color: #78aeed; /* Azul mais claro para o tema escuro */
+    --border-color: #404040;
+    --card-bg-color: #303030;
+    --contrast-color: #FF7800; 
+}
+
+/* Estilos globais do corpo da página */
+body {
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 1.7;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Container principal para centralizar o conteúdo */
+.header, .navigation, .content, .footer {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* --- Cabeçalho --- */
+.header {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+.header h1 { margin: 0; font-size: 2.8rem; color: var(--header-color); }
+.header p { margin: 0; font-size: 1.1rem; }
+
+/* --- Navegação --- */
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.3s;
+}
+.navigation a {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color) 20%, transparent); /* Fundo com 20% da cor de destaque */
+}
+.navigation a:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 35%, transparent);
+    text-decoration: none;
+}
+/* Estilo especial para o link "Sobre Mim" */
+#link-sobre {
+    color: var(--contrast-color);
+    background-color: color-mix(in srgb, var(--contrast-color) 20%, transparent);
+}
+#link-sobre:hover {
+    background-color: color-mix(in srgb, var(--contrast-color) 35%, transparent);
+}
+
+
+/* --- Conteúdo Principal (Cards de Seção) --- */
+/* Seletor específico: aplica-se apenas a sections que são filhas diretas de .content */
+.content > section {
+    /* margin-bottom: 0px; */
+    padding: 25px 30px;
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+/* Seletor específico para o título DENTRO do card */
+.content > section > h2 {
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--accent-color);
+    color: var(--header-color);
+}
+
+.content > section:last-child {
+    margin-bottom: 35px;
+}
+
+.post-item {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+.post-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.post-item h3 { margin: 0; color: var(--header-color); }
+.post-item p { margin-top: 5px; margin-bottom: 0; }
+.post-item a { text-decoration: none; }
+.post-item a:hover h3 { text-decoration: underline; }
+
+
+/* --- Rodapé --- */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+.footer p { margin: 0; }
+
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#theme-toggle:hover { 
+    background-color: var(--border-color); 
+}
+
+#theme-toggle svg { 
+    width: 22px; 
+    height: 22px; 
+    fill: currentColor; 
+}
+
+/* ================================================
+   ESTILOS PARA A PÁGINA DE ERRO 404
+   ================================================ */
+
+.error-container {
+    /* Centraliza todo o conteúdo */
+    text-align: center;
+    
+    /* Usa o mesmo estilo de "card" das outras seções */
+    margin-top: 40px;
+    padding: 40px 30px;
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.error-code {
+    /* Deixa o número 404 bem grande e com a cor de destaque */
+    font-size: 8rem; /* Tamanho da fonte gigante */
+    color: var(--accent-color);
+    margin: 0;
+    line-height: 1; /* Reduz o espaçamento vertical */
+}
+
+.error-title {
+    /* Estilo para o subtítulo */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: var(--header-color);
+}
+
+.error-message {
+    /* Estilo para o parágrafo explicativo */
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Estilo para o botão de "Voltar" */
+.button-link {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff; /* Texto sempre branco para contraste */
+    background-color: var(--accent-color);
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+.button-link:hover {
+    /* Efeito de leve "salto" e escurecimento ao passar o mouse */
+    transform: translateY(-2px);
+    background-color: color-mix(in srgb, var(--accent-color) 85%, black);
+}

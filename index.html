@@ -1,0 +1,32 @@
+---
+# "Front Matter": Diz ao Jekyll para usar o layout 'default' e define o título da página.
+layout: default
+title: Início
+---
+
+<nav class="navigation">
+{% for secao in site.data.secoes %}
+  {% if secao.ocultar == false or secao.ocultar == nil %}
+    <a href="#{{ secao.id }}">{{ secao.titulo }}</a>
+  {% endif %}
+{% endfor %}
+  <a href="{{ '/sobre/' | relative_url }}" id="link-sobre">Sobre Mim</a>
+</nav>
+
+{% for secao in site.data.secoes %}
+{% if secao.ocultar == false or secao.ocultar == nil %}
+    <h2>{{ secao.titulo }}</h2>
+    <section id="{{ secao.id }}">
+        {% for item in secao.items %}
+            {% if item.ocultar == false or item.ocultar == nil %}
+            <article class="post-item">
+                <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer"><h3>{{ item.titulo }}</h3></a>
+                {% if item.descricao and item.descricao != "" %}
+                    <p>{{ item.descricao }}</p>
+                {% endif %}
+            </article>
+            {% endif %}
+        {% endfor %}
+    </section>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,38 @@
+# ================================================
+# CONFIGURAÇÕES GLOBAIS DO SITE
+# ================================================
+# Estas informações são usadas em todo o site, como no cabeçalho e rodapé.
+
+# --- Informações Principais ---
+title: Vinícius Guardiano Souza
+description: Doutorando em Matemática na Universidade Federal de Alagoas
+author-name: vguardiano
+# O arquivo deve estar na raiz do projeto.
+favicon: "/favicon.ico"
+
+# A URL principal do seu site de usuário.
+url: "https://vguardiano.github.io"
+
+# O sub-caminho para este projeto. DEVE começar com uma barra /
+# e ser exatamente o nome do seu repositório.
+baseurl: "/personal-jekyll-site"
+
+# ... (author, favicon, exclude, etc.)
+
+# --- Informações para a Página "Sobre Mim" ---
+# Estes dados podem ser acessados em qualquer página usando `site.sobre`
+sobre:
+  titulo: "Olá! Eu sou o Vinícius."
+  # A imagem deve estar na pasta /assets/img/
+  nome_arquivo_foto: "foto.jpg"
+  descricao_foto: "Foto de perfil de Vinícius Guardiano"
+  # O caractere | permite que você escreva um bloco de texto com múltiplas linhas e HTML
+  texto_perfil: |
+    <p>Nascido e criado em Maceió, Alagoas, sou um entusiasta de matemática, tecnologia e um bom café. Quando não estou imerso em provas e demonstrações, gosto de explorar a fotografia, ler ficção científica e descobrir novas bandas de rock progressivo.</p>
+    <p>Este site é meu cantinho na internet para organizar e compartilhar um pouco da minha jornada acadêmica.</p>
+
+# --- Configurações de Build ---
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
